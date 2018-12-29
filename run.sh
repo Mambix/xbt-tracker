@@ -9,8 +9,10 @@ then
   echo "debug = 1" >> xbt_tracker.conf
 fi
 
-if [ "$DAEMON" = "false" ]
+if [ "$DAEMON" = "true" ]
 then
+  echo "daemon = 1" >> xbt_tracker.conf
+else
   echo "daemon = 0" >> xbt_tracker.conf
 fi
 
