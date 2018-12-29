@@ -22,7 +22,7 @@ RUN apk update && \
   openssl 
 
 COPY --from=build-env /tracker/xbt/Tracker/xbt_tracker /tracker/xbt_tracker
-;COPY --from=build-env /tracker/xbt/Tracker/xbt_tracker.sql /tracker/xbt_tracker.sql
+#COPY --from=build-env /tracker/xbt/Tracker/xbt_tracker.sql /tracker/xbt_tracker.sql
 
 COPY ./run.sh /
 RUN chmod +x /run.sh
