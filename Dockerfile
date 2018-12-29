@@ -20,7 +20,9 @@ WORKDIR /tracker
 RUN apk update && \
   apk add boost \
   openssl \
-  mariadb-connector-c
+  mariadb-connector-c \
+  boost \
+  zlib
 
 COPY --from=build-env /tracker/xbt/Tracker/xbt_tracker /tracker/xbt_tracker
 #COPY --from=build-env /tracker/xbt/Tracker/xbt_tracker.sql /tracker/xbt_tracker.sql
