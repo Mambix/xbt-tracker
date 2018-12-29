@@ -1,23 +1,13 @@
 FROM alpine:3.8 AS build-env
-WORKDIR /supernode
+WORKDIR /tracker
 
 RUN apk update && \
   apk add git \
   cmake \ 
-  wget \
   build-base \ 
   boost-dev \
-  pcre-dev \
-  pkgconfig \
-  openssl-dev \
-  rapidjson-dev \
-  readline-dev \
-  libexecinfo-dev \
-  libunwind-dev \
-  check-dev \
-  automake \
-  autoconf \
-  pkgconf
+  zlib-dev \
+  mariadb-dev
 
 COPY ./build.sh /
 RUN chmod +x /build.sh
@@ -25,13 +15,14 @@ RUN /build.sh
 
 FROM alpine:3.8
 MAINTAINER Mambix Ltd. <ledi.mambix@gmail.com>
-WORKDIR /supernode
+WORKDIR /tracker
 
 RUN apk update && \
   apk add boost \
   openssl
 
-COPY --from=build-env /supernode/graft-ng /supernode
+COPY --from=build-env /tracker/xbt/Tracker/xbt_tracker /tracker
+COPY --from=build-env /tracker/xbt/Tracker/xbt_tracker.sql /tracker
 
 COPY ./run.sh /
 RUN chmod +x /run.sh
