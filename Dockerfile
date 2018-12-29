@@ -27,6 +27,6 @@ COPY --from=build-env /tracker/xbt/Tracker/xbt_tracker /tracker/xbt_tracker
 COPY ./run.sh /
 RUN chmod +x /run.sh
 
-EXPOSE 2710
+EXPOSE 2710/UDP
 
-ENTRYPOINT [ "/run.sh" ]
+CMD /run.sh
