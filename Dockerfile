@@ -19,14 +19,14 @@ WORKDIR /tracker
 
 RUN apk update && \
   apk add boost \
-  openssl
+  openssl 
 
-COPY --from=build-env /tracker/xbt/Tracker/xbt_tracker /tracker
-COPY --from=build-env /tracker/xbt/Tracker/xbt_tracker.sql /tracker
+COPY --from=build-env /tracker/xbt/Tracker/xbt_tracker /tracker/xbt_tracker
+;COPY --from=build-env /tracker/xbt/Tracker/xbt_tracker.sql /tracker/xbt_tracker.sql
 
 COPY ./run.sh /
 RUN chmod +x /run.sh
 
-EXPOSE 8545 30303
+EXPOSE 2710
 
 ENTRYPOINT [ "/run.sh" ]
