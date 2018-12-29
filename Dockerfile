@@ -25,9 +25,9 @@ RUN apk update && \
 COPY --from=build-env /tracker/xbt/Tracker/xbt_tracker /tracker/xbt_tracker
 #COPY --from=build-env /tracker/xbt/Tracker/xbt_tracker.sql /tracker/xbt_tracker.sql
 
-COPY ./run.sh /
-RUN chmod +x /run.sh
+COPY ./run.sh /tracker/run.sh
+RUN chmod +x /tracker/run.sh
 
 EXPOSE 2710
 
-CMD /run.sh
+CMD ./run.sh
