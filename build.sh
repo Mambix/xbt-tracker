@@ -1,2 +1,4 @@
 git clone --recursive https://github.com/OlafvdSpek/xbt.git
-cd xbt
+cd xbt/Tracker
+cmake .
+make -j4
