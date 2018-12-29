@@ -16,6 +16,13 @@ else
   echo "daemon = 0" >> xbt_tracker.conf
 fi
 
+if [ "$AUTOREGISTER" = "true" ]
+then
+  echo "auto_register = 1" >> xbt_tracker.conf
+else
+  echo "auto_register = 0" >> xbt_tracker.conf
+fi
+
 if [ "$LOG_ACCESS" = "true" ]
 then
   echo "log_access = 1" >> xbt_tracker.conf
