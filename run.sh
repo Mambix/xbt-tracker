@@ -1,5 +1,3 @@
-#!/bin/bash
-
 echo "Writing config $USER:$PASSWORD@$HOST:$DATABASE"
 echo "mysql_host = $HOST" > xbt_tracker.conf
 echo "mysql_user = $USER" >> xbt_tracker.conf
